@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSaaS | لوحة تحكم إدارة الطلاب</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body { font-family: 'Tajawal', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .neon-border { box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); border-color: rgba(59, 130, 246, 0.6); }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen p-6 flex flex-col items-center">
+
+    <!-- الهيدر -->
+    <header class="w-full max-w-5xl mb-8 text-center md:text-right">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">منصة EduSaaS السحابية</h1>
+        <p class="text-slate-400 mt-2">مشروع إدارة الطلاب - كلية علوم الحاسوب وتقانة المعلومات</p>
+    </header>
+
+    <main class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- قسم إضافة طالب جديد -->
+        <section class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 backdrop-blur-md h-fit">
+            <h2 class="text-xl font-bold text-blue-400 mb-6 flex items-center gap-2">
+                <span>➕</span> إضافة طالب جديد
+            </h2>
+            <form action="/add_student" method="POST" class="flex flex-col gap-4">
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">اسم الطالب كاملاً</label>
+                    <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">البريد الإلكتروني</label>
+                    <input type="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-1">الكورس / التخصص</label>
+                    <input type="text" name="course" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-blue-500">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 transition text-white font-bold py-2.5 rounded-lg mt-2 shadow-lg shadow-blue-600/20">
+                    حفظ البيانات
+                </button>
+            </form>
+        </section>
+
+        <!-- قسم عرض جدول الطلاب -->
+        <section class="md:col-span-2 bg-slate-900/80 rounded-2xl border border-slate-800 overflow-hidden backdrop-blur-md">
+            <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900">
+                <h2 class="text-xl font-bold text-indigo-400 flex items-center gap-2">
+                    <span>🎓</span> قائمة الطلاب المسجلين
+                </h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-800/50 text-slate-400 text-sm border-b border-slate-800">
+                            <th class="px-6 py-4 font-semibold">المعرف</th>
+                            <th class="px-6 py-4 font-semibold">الاسم</th>
+                            <th class="px-6 py-4 font-semibold">الإيميل</th>
+                            <th class="px-6 py-4 font-semibold">الكورس</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <!-- STUDENTS_PLACEHOLDER -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full max-w-5xl text-center mt-12 text-xs text-slate-600 border-t border-slate-900 pt-4">
+        حقوق النشر © 2026 - نظام EduSaaS لإدارة الطلاب.
+    </footer>
+
+</body>
+</html>
 
